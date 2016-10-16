@@ -15,7 +15,6 @@
 #   hubot Yo dawg <text> so <text> - Meme: Yo Dawg
 #   hubot All your <text> are belong to <text> - Meme: All your <text> are belong to <text>
 #   hubot If <text>, <question> <text>? - Meme: Philosoraptor
-#   hubot <text>, BITCH PLEASE <text> - Meme: Yao Ming
 #   hubot <text>, COURAGE <text> - Meme: Courage Wolf
 #   hubot ONE DOES NOT SIMPLY <text> - Meme: Boromir
 #   hubot IF YOU <text> GONNA HAVE A BAD TIME - Meme: Ski Instructor
@@ -78,9 +77,6 @@ module.exports = (robot) ->
 
   robot[listen_func] /(All your .*) (are belong to .*)/i, id: 'meme.base-are-belong', (msg) ->
     memeGenerator msg, '76CAvA', msg.match[1], msg.match[2]
-
-  robot[listen_func] /(.*)\s*BITCH PLEASE\s*(.*)/i, id: 'meme.bitch-please', (msg) ->
-    memeGenerator msg, 'jo9J0Q', msg.match[1], msg.match[2]
 
   robot[listen_func] /(.*)\s*COURAGE\s*(.*)/i, id: 'meme.courage', (msg) ->
     memeGenerator msg, 'IMQ72w', msg.match[1], msg.match[2]
