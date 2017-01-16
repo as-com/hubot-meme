@@ -41,7 +41,7 @@ createPostData = (imageID, lowerText, upperText) ->
   return JSON.stringify(data)
 
 module.exports = (msg, imageID, upperText, lowerText) ->
-  MEME_CAPTAIN = 'http://memecaptain.com/gend_images'
+  MEME_CAPTAIN = 'https://memecaptain.com/gend_images'
   baseError = 'Sorry, I couldn\'t generate that meme.'
   reasonError = 'Unexpected status from memecaptain.com:'
 
@@ -56,7 +56,7 @@ module.exports = (msg, imageID, upperText, lowerText) ->
           return msg.reply "#{baseError} #{err}" if err
           return if res.statusCode == 200 # wait for the image
           if res.statusCode == 303
-            msg.send res.headers.location
+            msg.send res.headers.location.replace(/http\:/, "https:")
             clearInterval(timer)
           else
             msg.reply "#{baseError} #{reasonError} #{res.statusCode} while waiting for the image"
