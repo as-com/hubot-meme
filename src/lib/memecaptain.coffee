@@ -60,7 +60,7 @@ module.exports = (msg, imageID, upperText, lowerText) ->
             clearInterval(timer)
           else
             msg.reply "#{baseError} #{reasonError} #{res.statusCode} while waiting for the image"
-      , 2000)
+      , 1000)
     if res.statusCode > 300 # memecaptain error
       msg.reply "#{baseError} #{reasonError} #{res.statusCode} when requesting the image"
 
